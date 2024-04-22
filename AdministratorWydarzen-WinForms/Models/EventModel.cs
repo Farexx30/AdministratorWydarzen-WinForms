@@ -17,7 +17,7 @@ namespace AdministratorWydarzen_WinForms.Models
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
         public DateTime StartDate { get; set; }
-        public EventType EventType { get; set; }
+        public EventType EventType { get; set; } = EventType.Entertainment;
         public EventPriority EventPriority { get; set; } = EventPriority.LowPriority;
     }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Łukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj": {}
+    "C:\\Users\\Łukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Łukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj": {
+    "C:\\Users\\Łukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Łukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj",
+        "projectUniqueName": "C:\\Users\\Łukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj",
         "projectName": "AdministratorWydarzen-WinForms",
-        "projectPath": "C:\\Users\\Łukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj",
+        "projectPath": "C:\\Users\\Łukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj",
         "packagesPath": "C:\\Users\\Łukasz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Łukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms\\obj\\",
+        "outputPath": "C:\\Users\\Łukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

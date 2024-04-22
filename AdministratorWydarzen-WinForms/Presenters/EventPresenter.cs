@@ -14,14 +14,13 @@ namespace AdministratorWydarzen_WinForms.Presenters
 
     internal class EventPresenter : IEventPresenter
     {
-        private readonly IEventView _view;
         private readonly IEventModel _model;
-        public IEventView View { get; } = null!;
+        public IEventView View { get; }
 
-        public EventPresenter(IEventView view, IEventModel model)
+        public EventPresenter(IEventModel model, IEventView view)
         {
-            _view = view;
             _model = model;
+            View = view;
         }
     }
 }

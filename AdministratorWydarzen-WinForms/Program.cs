@@ -18,7 +18,7 @@ namespace AdministratorWydarzen_WinForms
 
             DIConfiguration.ServiceProvider = builder.Services;
 
-            IEventPresenter eventPresenter = DIConfiguration.ServiceProvider.GetRequiredService<IEventPresenter>();
+            var eventPresenter = DIConfiguration.ServiceProvider.GetRequiredService<IEventPresenter>();
      
             Application.Run((Form)eventPresenter.View);
         }

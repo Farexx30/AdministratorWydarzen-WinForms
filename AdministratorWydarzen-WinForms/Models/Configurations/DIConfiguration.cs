@@ -11,7 +11,7 @@ namespace AdministratorWydarzen_WinForms.Models.Configurations
 {
     static internal class DIConfiguration 
     {
-        public static IServiceProvider ServiceProvider { get; set; } = default!;
+        public static IServiceProvider? ServiceProvider { get; set; }
 
         public static IHostBuilder CreateHostBuilder() =>
             Host.CreateDefaultBuilder()
@@ -25,7 +25,7 @@ namespace AdministratorWydarzen_WinForms.Models.Configurations
             services.AddTransient<IEventView, EventView>();
             services.AddTransient<IEventModel, EventModel>();
             services.AddTransient<IEventPresenter, EventPresenter>();
-            services.AddTransient<EventPresenter>();
+
             return services;
         }
     }
