@@ -12,27 +12,7 @@ namespace AdministratorWydarzen_WinForms
         public EventView()
         {
             InitializeComponent();
-        }
-
-        //Placeholder logic:
-        private void SearchByTextBoxEnter(object sender, EventArgs e)
-        {
-            if (SearchByTextBox.ForeColor == Color.LightGray)
-            {
-                SearchByTextBox.Text = string.Empty;
-                SearchByTextBox.ForeColor = Color.Black;
-            }
-        }
-
-        private void SearchByTextBoxLeave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(SearchByTextBox.Text.Trim()))
-            {
-                SearchByTextBox.Text = "Szukaj...";
-                SearchByTextBox.ForeColor = Color.LightGray;
-            }
-            SearchByTextBox.Text = SearchByTextBox.Text.Trim();
-        }
+        }                                                                                                                         
 
         //Errors while creating event logic:
         private bool CheckAllPossibleErrors()
@@ -41,14 +21,24 @@ namespace AdministratorWydarzen_WinForms
                 & !DescriptionTextBox.SetErrorIfEmptyTextBox(EventCreatorErrorProvider)
                 & !EventDateDateTimePicker.SetErrorIfBadStartDate(EventCreatorErrorProvider);
         }
-        
+
         //Test:
         private void AddEventButton_Click(object sender, EventArgs e)
         {
-            if (CheckAllPossibleErrors()) 
+            if (CheckAllPossibleErrors())
             {
                 MessageBox.Show("OK!");
             }
+        }
+
+        private void FilterByDateCheckBoxMouseHover(object sender, EventArgs e)
+        {
+            FilterByDateToolTip.SetToolTip(FilterByDateCheckBox, "Zaznacz, aby uwzglêdniæ datê");
+        }
+
+        private void FilterByDateCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            FilterByDateDateTimePicker.Enabled ^= true;
         }
     }
 }

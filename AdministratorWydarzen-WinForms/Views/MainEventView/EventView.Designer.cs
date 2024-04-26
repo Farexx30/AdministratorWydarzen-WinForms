@@ -44,14 +44,23 @@
             DeleteEventButton = new Button();
             AllEventsListBox = new ListBox();
             AllEventsGroupBox = new GroupBox();
+            FilterByDateCheckBox = new CheckBox();
+            SortDirectionLabel = new Label();
+            SortDirectionComboBox = new ComboBox();
             SortByLabel = new Label();
+            FilterByPriorityLabel = new Label();
+            FilterByTypeLabel = new Label();
+            FilterByDataLabel = new Label();
+            FilterByDateDateTimePicker = new DateTimePicker();
+            FilterByPriorityComboBox = new ComboBox();
+            SortLabel = new Label();
             FilteryByLabel = new Label();
-            SearchByTextBox = new TextBox();
             SortByComboxBox = new ComboBox();
-            FilterByComboBox = new ComboBox();
+            FilterByTypeComboBox = new ComboBox();
             EventDetailsGroupBox = new GroupBox();
             EventDetailsTextBox = new TextBox();
             EventCreatorErrorProvider = new ErrorProvider(components);
+            FilterByDateToolTip = new ToolTip(components);
             CreateEventGroupBox.SuspendLayout();
             AllEventsGroupBox.SuspendLayout();
             EventDetailsGroupBox.SuspendLayout();
@@ -71,16 +80,16 @@
             CreateEventGroupBox.Controls.Add(DescriptionLabel);
             CreateEventGroupBox.Controls.Add(TitleLabel);
             CreateEventGroupBox.Controls.Add(TitleTextBox);
-            CreateEventGroupBox.Location = new Point(12, 12);
+            CreateEventGroupBox.Location = new Point(3, 12);
             CreateEventGroupBox.Name = "CreateEventGroupBox";
-            CreateEventGroupBox.Size = new Size(334, 403);
+            CreateEventGroupBox.Size = new Size(293, 403);
             CreateEventGroupBox.TabIndex = 0;
             CreateEventGroupBox.TabStop = false;
             CreateEventGroupBox.Text = "Informacje o wydarzeniu";
             // 
             // AddEventButton
             // 
-            AddEventButton.Location = new Point(118, 353);
+            AddEventButton.Location = new Point(104, 349);
             AddEventButton.Name = "AddEventButton";
             AddEventButton.Size = new Size(86, 22);
             AddEventButton.TabIndex = 11;
@@ -93,11 +102,10 @@
             PriorityComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             PriorityComboBox.FormattingEnabled = true;
             PriorityComboBox.Items.AddRange(new object[] { "Niski", "Średni", "Wysoki" });
-            PriorityComboBox.Location = new Point(111, 294);
+            PriorityComboBox.Location = new Point(84, 294);
             PriorityComboBox.Name = "PriorityComboBox";
             PriorityComboBox.Size = new Size(154, 23);
             PriorityComboBox.TabIndex = 10;
-            PriorityComboBox.SelectedIndex = 0;
             // 
             // PriorityLabel
             // 
@@ -122,34 +130,33 @@
             TypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             TypeComboBox.FormattingEnabled = true;
             TypeComboBox.Items.AddRange(new object[] { "Praca", "Rodzina", "Rozrywka", "Zdrowie", "Sport" });
-            TypeComboBox.Location = new Point(111, 246);
+            TypeComboBox.Location = new Point(84, 246);
             TypeComboBox.Name = "TypeComboBox";
             TypeComboBox.Size = new Size(154, 23);
             TypeComboBox.TabIndex = 7;
-            TypeComboBox.SelectedIndex = 1;
             // 
             // EventDateLabel
             // 
             EventDateLabel.AutoSize = true;
             EventDateLabel.Location = new Point(6, 200);
             EventDateLabel.Name = "EventDateLabel";
-            EventDateLabel.Size = new Size(99, 15);
+            EventDateLabel.Size = new Size(72, 30);
             EventDateLabel.TabIndex = 6;
-            EventDateLabel.Text = "Data rozpoczęcia:";
+            EventDateLabel.Text = "Data\nrozpoczęcia:";
             // 
             // EventDateDateTimePicker
             // 
             EventDateDateTimePicker.CalendarFont = new Font("Segoe UI", 9F);
-            EventDateDateTimePicker.CustomFormat = "dd.MM.yyyy";
+            EventDateDateTimePicker.CustomFormat = "dd.MM.yyyy HH:mm";
             EventDateDateTimePicker.Format = DateTimePickerFormat.Custom;
-            EventDateDateTimePicker.Location = new Point(111, 200);
+            EventDateDateTimePicker.Location = new Point(84, 200);
             EventDateDateTimePicker.Name = "EventDateDateTimePicker";
             EventDateDateTimePicker.Size = new Size(154, 23);
             EventDateDateTimePicker.TabIndex = 5;
             // 
             // DescriptionTextBox
             // 
-            DescriptionTextBox.Location = new Point(111, 79);
+            DescriptionTextBox.Location = new Point(84, 79);
             DescriptionTextBox.Multiline = true;
             DescriptionTextBox.Name = "DescriptionTextBox";
             DescriptionTextBox.Size = new Size(189, 100);
@@ -157,7 +164,6 @@
             // 
             // DescriptionLabel
             // 
-            DescriptionLabel.AccessibleRole = AccessibleRole.SplitButton;
             DescriptionLabel.AutoSize = true;
             DescriptionLabel.Location = new Point(6, 79);
             DescriptionLabel.Name = "DescriptionLabel";
@@ -176,14 +182,14 @@
             // 
             // TitleTextBox
             // 
-            TitleTextBox.Location = new Point(111, 34);
+            TitleTextBox.Location = new Point(84, 34);
             TitleTextBox.Name = "TitleTextBox";
             TitleTextBox.Size = new Size(154, 23);
             TitleTextBox.TabIndex = 0;
             // 
             // DeleteEventButton
             // 
-            DeleteEventButton.Location = new Point(358, 416);
+            DeleteEventButton.Location = new Point(312, 416);
             DeleteEventButton.Name = "DeleteEventButton";
             DeleteEventButton.Size = new Size(86, 22);
             DeleteEventButton.TabIndex = 12;
@@ -197,52 +203,138 @@
             AllEventsListBox.ItemHeight = 28;
             AllEventsListBox.Location = new Point(0, 74);
             AllEventsListBox.Name = "AllEventsListBox";
-            AllEventsListBox.Size = new Size(434, 200);
+            AllEventsListBox.Size = new Size(488, 200);
             AllEventsListBox.TabIndex = 13;
             // 
             // AllEventsGroupBox
             // 
+            AllEventsGroupBox.Controls.Add(FilterByDateCheckBox);
+            AllEventsGroupBox.Controls.Add(SortDirectionLabel);
+            AllEventsGroupBox.Controls.Add(SortDirectionComboBox);
             AllEventsGroupBox.Controls.Add(SortByLabel);
+            AllEventsGroupBox.Controls.Add(FilterByPriorityLabel);
+            AllEventsGroupBox.Controls.Add(FilterByTypeLabel);
+            AllEventsGroupBox.Controls.Add(FilterByDataLabel);
+            AllEventsGroupBox.Controls.Add(FilterByDateDateTimePicker);
+            AllEventsGroupBox.Controls.Add(FilterByPriorityComboBox);
+            AllEventsGroupBox.Controls.Add(SortLabel);
             AllEventsGroupBox.Controls.Add(FilteryByLabel);
-            AllEventsGroupBox.Controls.Add(SearchByTextBox);
             AllEventsGroupBox.Controls.Add(SortByComboxBox);
-            AllEventsGroupBox.Controls.Add(FilterByComboBox);
+            AllEventsGroupBox.Controls.Add(FilterByTypeComboBox);
             AllEventsGroupBox.Controls.Add(AllEventsListBox);
-            AllEventsGroupBox.Location = new Point(356, 12);
+            AllEventsGroupBox.Location = new Point(302, 12);
             AllEventsGroupBox.Name = "AllEventsGroupBox";
-            AllEventsGroupBox.Size = new Size(434, 274);
+            AllEventsGroupBox.Size = new Size(488, 274);
             AllEventsGroupBox.TabIndex = 13;
             AllEventsGroupBox.TabStop = false;
             AllEventsGroupBox.Text = "Wszystkie wydarzenia";
             // 
+            // FilterByDateCheckBox
+            // 
+            FilterByDateCheckBox.AutoSize = true;
+            FilterByDateCheckBox.Location = new Point(81, 30);
+            FilterByDateCheckBox.Name = "FilterByDateCheckBox";
+            FilterByDateCheckBox.Size = new Size(15, 14);
+            FilterByDateCheckBox.TabIndex = 27;
+            FilterByDateCheckBox.UseVisualStyleBackColor = true;
+            FilterByDateCheckBox.MouseHover += FilterByDateCheckBoxMouseHover;
+            FilterByDateCheckBox.CheckedChanged += FilterByDateCheckBox_CheckedChanged;
+            // 
+            // SortDirectionLabel
+            // 
+            SortDirectionLabel.AutoSize = true;
+            SortDirectionLabel.Location = new Point(409, 30);
+            SortDirectionLabel.Name = "SortDirectionLabel";
+            SortDirectionLabel.Size = new Size(56, 15);
+            SortDirectionLabel.TabIndex = 26;
+            SortDirectionLabel.Text = "Kierunek:";
+            // 
+            // SortDirectionComboBox
+            // 
+            SortDirectionComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            SortDirectionComboBox.Font = new Font("Segoe UI", 9F);
+            SortDirectionComboBox.FormattingEnabled = true;
+            SortDirectionComboBox.Items.AddRange(new object[] { "Rosnąco", "Malejąco" });
+            SortDirectionComboBox.Location = new Point(409, 45);
+            SortDirectionComboBox.Name = "SortDirectionComboBox";
+            SortDirectionComboBox.Size = new Size(73, 23);
+            SortDirectionComboBox.TabIndex = 25;
+            // 
             // SortByLabel
             // 
             SortByLabel.AutoSize = true;
-            SortByLabel.Location = new Point(230, 19);
+            SortByLabel.Location = new Point(312, 30);
             SortByLabel.Name = "SortByLabel";
             SortByLabel.Size = new Size(58, 15);
-            SortByLabel.TabIndex = 18;
+            SortByLabel.TabIndex = 24;
             SortByLabel.Text = "Sortuj po:";
+            // 
+            // FilterByPriorityLabel
+            // 
+            FilterByPriorityLabel.AutoSize = true;
+            FilterByPriorityLabel.Location = new Point(199, 30);
+            FilterByPriorityLabel.Name = "FilterByPriorityLabel";
+            FilterByPriorityLabel.Size = new Size(55, 15);
+            FilterByPriorityLabel.TabIndex = 23;
+            FilterByPriorityLabel.Text = "Priorytet:";
+            // 
+            // FilterByTypeLabel
+            // 
+            FilterByTypeLabel.AutoSize = true;
+            FilterByTypeLabel.Location = new Point(102, 30);
+            FilterByTypeLabel.Name = "FilterByTypeLabel";
+            FilterByTypeLabel.Size = new Size(28, 15);
+            FilterByTypeLabel.TabIndex = 22;
+            FilterByTypeLabel.Text = "Typ:";
+            // 
+            // FilterByDataLabel
+            // 
+            FilterByDataLabel.AutoSize = true;
+            FilterByDataLabel.Location = new Point(5, 30);
+            FilterByDataLabel.Name = "FilterByDataLabel";
+            FilterByDataLabel.Size = new Size(34, 15);
+            FilterByDataLabel.TabIndex = 21;
+            FilterByDataLabel.Text = "Data:";
+            // 
+            // FilterByDateDateTimePicker
+            // 
+            FilterByDateDateTimePicker.Enabled = false;
+            FilterByDateDateTimePicker.CustomFormat = "dd.MM.yyyy";
+            FilterByDateDateTimePicker.Format = DateTimePickerFormat.Custom;
+            FilterByDateDateTimePicker.Location = new Point(5, 45);
+            FilterByDateDateTimePicker.Name = "FilterByDateDateTimePicker";
+            FilterByDateDateTimePicker.Size = new Size(91, 23);
+            FilterByDateDateTimePicker.TabIndex = 20;
+            // 
+            // FilterByPriorityComboBox
+            // 
+            FilterByPriorityComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            FilterByPriorityComboBox.FormattingEnabled = true;
+            FilterByPriorityComboBox.Items.AddRange(new object[] { "Bez filtru", "Niski", "Średni", "Wysoki" });
+            FilterByPriorityComboBox.Location = new Point(199, 45);
+            FilterByPriorityComboBox.Name = "FilterByPriorityComboBox";
+            FilterByPriorityComboBox.Size = new Size(91, 23);
+            FilterByPriorityComboBox.TabIndex = 19;
+            // 
+            // SortLabel
+            // 
+            SortLabel.AutoSize = true;
+            SortLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            SortLabel.Location = new Point(312, 15);
+            SortLabel.Name = "SortLabel";
+            SortLabel.Size = new Size(74, 15);
+            SortLabel.TabIndex = 18;
+            SortLabel.Text = "Sortowanie:";
             // 
             // FilteryByLabel
             // 
             FilteryByLabel.AutoSize = true;
-            FilteryByLabel.Location = new Point(129, 19);
+            FilteryByLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            FilteryByLabel.Location = new Point(5, 15);
             FilteryByLabel.Name = "FilteryByLabel";
-            FilteryByLabel.Size = new Size(57, 15);
+            FilteryByLabel.Size = new Size(38, 15);
             FilteryByLabel.TabIndex = 17;
-            FilteryByLabel.Text = "Filtruj po:";
-            // 
-            // SearchByTextBox
-            // 
-            SearchByTextBox.ForeColor = Color.LightGray;
-            SearchByTextBox.Location = new Point(10, 34);
-            SearchByTextBox.Name = "SearchByTextBox";
-            SearchByTextBox.Size = new Size(95, 23);
-            SearchByTextBox.TabIndex = 16;
-            SearchByTextBox.Text = "Szukaj...";
-            SearchByTextBox.Enter += SearchByTextBoxEnter;
-            SearchByTextBox.Leave += SearchByTextBoxLeave;
+            FilteryByLabel.Text = "Filtry:";
             // 
             // SortByComboxBox
             // 
@@ -250,40 +342,37 @@
             SortByComboxBox.DropDownWidth = 95;
             SortByComboxBox.FormattingEnabled = true;
             SortByComboxBox.Items.AddRange(new object[] { "Data", "Typ", "Priorytet" });
-            SortByComboxBox.Location = new Point(231, 34);
+            SortByComboxBox.Location = new Point(312, 45);
             SortByComboxBox.Name = "SortByComboxBox";
-            SortByComboxBox.Size = new Size(95, 23);
+            SortByComboxBox.Size = new Size(91, 23);
             SortByComboxBox.TabIndex = 15;
-            SortByComboxBox.SelectedIndex = 0;
             // 
-            // FilterByComboBox
+            // FilterByTypeComboBox
             // 
-            FilterByComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            FilterByComboBox.FormattingEnabled = true;
-            FilterByComboBox.Items.AddRange(new object[] { "Data", "Typ", "Priorytet" });
-            FilterByComboBox.Location = new Point(129, 34);
-            FilterByComboBox.Name = "FilterByComboBox";
-            FilterByComboBox.Size = new Size(95, 23);
-            FilterByComboBox.TabIndex = 14;
-            FilterByComboBox.SelectedIndex = 1;
+            FilterByTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            FilterByTypeComboBox.FormattingEnabled = true;
+            FilterByTypeComboBox.Items.AddRange(new object[] { "Bez filtru", "Praca", "Rodzina", "Rozrywka", "Zdrowie", "Sport" });
+            FilterByTypeComboBox.Location = new Point(102, 45);
+            FilterByTypeComboBox.Name = "FilterByTypeComboBox";
+            FilterByTypeComboBox.Size = new Size(91, 23);
+            FilterByTypeComboBox.TabIndex = 14;
             // 
             // EventDetailsGroupBox
             // 
             EventDetailsGroupBox.Controls.Add(EventDetailsTextBox);
-            EventDetailsGroupBox.Location = new Point(356, 292);
+            EventDetailsGroupBox.Location = new Point(302, 292);
             EventDetailsGroupBox.Name = "EventDetailsGroupBox";
-            EventDetailsGroupBox.Size = new Size(434, 123);
+            EventDetailsGroupBox.Size = new Size(488, 123);
             EventDetailsGroupBox.TabIndex = 14;
             EventDetailsGroupBox.TabStop = false;
             EventDetailsGroupBox.Text = "Szczegóły wydarzenia";
             // 
             // EventDetailsTextBox
             // 
-            EventDetailsTextBox.Location = new Point(2, 22);
+            EventDetailsTextBox.Location = new Point(0, 22);
             EventDetailsTextBox.Name = "EventDetailsTextBox";
             EventDetailsTextBox.ReadOnly = true;
-            EventDetailsTextBox.AutoSize = false;
-            EventDetailsTextBox.Size = new Size(432, 100);
+            EventDetailsTextBox.Size = new Size(488, 23);
             EventDetailsTextBox.TabIndex = 0;
             // 
             // EventCreatorErrorProvider
@@ -306,6 +395,7 @@
             AllEventsGroupBox.ResumeLayout(false);
             AllEventsGroupBox.PerformLayout();
             EventDetailsGroupBox.ResumeLayout(false);
+            EventDetailsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)EventCreatorErrorProvider).EndInit();
             ResumeLayout(false);
         }
@@ -330,10 +420,19 @@
         private GroupBox EventDetailsGroupBox;
         private TextBox EventDetailsTextBox;
         private ComboBox SortByComboxBox;
-        private ComboBox FilterByComboBox;
-        private TextBox SearchByTextBox;
+        private ComboBox FilterByTypeComboBox;
         private Label FilteryByLabel;
-        private Label SortByLabel;
+        private Label SortLabel;
         private ErrorProvider EventCreatorErrorProvider;
+        private DateTimePicker FilterByDateDateTimePicker;
+        private ComboBox FilterByPriorityComboBox;
+        private Label FilterByDataLabel;
+        private Label FilterByPriorityLabel;
+        private Label FilterByTypeLabel;
+        private Label SortByLabel;
+        private ComboBox SortDirectionComboBox;
+        private Label SortDirectionLabel;
+        private CheckBox FilterByDateCheckBox;
+        private ToolTip FilterByDateToolTip;
     }
 }

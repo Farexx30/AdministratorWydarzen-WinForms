@@ -24,7 +24,7 @@ namespace AdministratorWydarzen_WinForms.Views.MainView
 
         public static bool SetErrorIfBadStartDate(this DateTimePicker EventDateDateTimePicker, ErrorProvider EventCreatorErrorProvider)
         {
-            if (EventDateDateTimePicker.Value < DateTime.Now)
+            if (EventDateDateTimePicker.Value < DateTime.Now.AddHours(1))
             {
                 EventCreatorErrorProvider.SetError(EventDateDateTimePicker, "Niepoprawna data rozpoczęcia wydarzenia");
                 EventCreatorErrorProvider.SetIconAlignment(EventDateDateTimePicker, ErrorIconAlignment.TopRight);
