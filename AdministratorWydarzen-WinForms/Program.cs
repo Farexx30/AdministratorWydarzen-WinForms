@@ -1,4 +1,4 @@
-using AdministratorWydarzen_WinForms.Models.Configurations;
+using AdministratorWydarzen_WinForms.Configurations;
 using AdministratorWydarzen_WinForms.Presenters;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,7 +19,7 @@ namespace AdministratorWydarzen_WinForms
             DIConfiguration.ServiceProvider = builder.Services;
 
             var eventPresenter = DIConfiguration.ServiceProvider.GetRequiredService<IEventPresenter>();
-     
+
             Application.Run((Form)eventPresenter.View);
         }
     }

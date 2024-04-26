@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace AdministratorWydarzen_WinForms.Models
 {
-    public interface IEventModel
+    public class Event
     {
-
-    }
-
-    internal class EventModel : IEventModel
-    {
-        public string Name { get; set; } = null!;
+        public int Id { get; set; } 
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
         public DateTime StartDate { get; set; }
@@ -21,7 +16,7 @@ namespace AdministratorWydarzen_WinForms.Models
         public EventPriority EventPriority { get; set; } = EventPriority.LowPriority;
     }
 
-    internal enum EventType
+    public enum EventType
     {
         Work,
         Family,
@@ -30,7 +25,7 @@ namespace AdministratorWydarzen_WinForms.Models
         Sport
     }
 
-    internal enum EventPriority
+    public enum EventPriority
     {
         LowPriority,
         MediumPriority,
