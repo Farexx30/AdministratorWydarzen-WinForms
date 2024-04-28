@@ -65,6 +65,10 @@
             AllEventsGroupBox.SuspendLayout();
             EventDetailsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)EventCreatorErrorProvider).BeginInit();
+            Load += MainEventViewOnLoad;
+            FormClosed += MainEventViewOnClosed;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             SuspendLayout();
             // 
             // CreateEventGroupBox
@@ -95,7 +99,7 @@
             AddEventButton.TabIndex = 11;
             AddEventButton.Text = "Dodaj";
             AddEventButton.UseVisualStyleBackColor = true;
-            AddEventButton.Click += AddEventButton_Click;
+            AddEventButton.Click += AddEventButtonClick;
             // 
             // PriorityComboBox
             // 
@@ -238,7 +242,7 @@
             FilterByDateCheckBox.TabIndex = 27;
             FilterByDateCheckBox.UseVisualStyleBackColor = true;
             FilterByDateCheckBox.MouseHover += FilterByDateCheckBoxMouseHover;
-            FilterByDateCheckBox.CheckedChanged += FilterByDateCheckBox_CheckedChanged;
+            FilterByDateCheckBox.CheckedChanged += FilterByDateCheckBoxCheckedChanged;
             // 
             // SortDirectionLabel
             // 

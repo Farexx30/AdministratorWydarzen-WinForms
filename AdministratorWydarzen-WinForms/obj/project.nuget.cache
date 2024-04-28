@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "XWwI5KgEpPHE0eN5ZajMwTIskf3CWr4vWYNhXDQLfszK7Matj1QcW9k4m5Y6wZqYTnILk3awLnhK+zIzckq7Wg==",
+  "dgSpecHash": "X0RzYt7sK1qqox2/kBrO3JV4RdTd4FBn27Mpc+CcG4JUSykgN1EMYVhYFYbXER0ELpmfbN3vf9Slz4Y6V+axhg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Łukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Łukasz\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\Łukasz\\.nuget\\packages\\csvhelper\\32.0.1\\csvhelper.32.0.1.nupkg.sha512",
     "C:\\Users\\Łukasz\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\Łukasz\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Łukasz\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.0\\microsoft.extensions.configuration.binder.8.0.0.nupkg.sha512",

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using AdministratorWydarzen_WinForms.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdministratorWydarzen_WinForms.Dtos
+namespace AdministratorWydarzen_WinForms.Models.Dtos
 {
     public class DetailedEventDto
     {

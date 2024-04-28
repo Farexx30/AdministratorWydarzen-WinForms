@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,6 +26,10 @@ namespace AdministratorWydarzen_WinForms.Configurations
         {
             services.AddTransient<IEventView, EventView>();
             services.AddTransient<IEventPresenter, EventPresenter>();
+            services.AddTransient<IEventCsvReader, EventCsvReader>();
+            services.AddTransient<IEventCsvWriter, EventCsvWriter>();
+
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             return services;
         }
