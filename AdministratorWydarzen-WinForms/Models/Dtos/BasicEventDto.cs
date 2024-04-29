@@ -17,7 +17,7 @@ namespace AdministratorWydarzen_WinForms.Models.Dtos
         public override string ToString()
         {
             string eventTypeString = MapFromEventTypeId(EventTypeId);
-            return $"{Title}; {StartDate}; {eventTypeString}";
+            return $"{Title}; {StartDate:dd.MM.yyyy-HH:mm}; {eventTypeString}";
         }
 
         private static string MapFromEventTypeId(int eventTypeId)

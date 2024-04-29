@@ -37,7 +37,10 @@ namespace AdministratorWydarzen_WinForms.Presenters
             View.MainEventViewOnLoadEvent += MainEventViewOnLoadEventHandler;
             View.MainEventViewOnClosedEvent += MainEventViewOnClosedEventHandler;
             View.AddEventClick += AddEventClickHandler;
-            
+            View.DeleteEventClick += DeleteEventClickHandler;
+            View.SelectedEventChangedClick += SelectedEventChangedClickHandler;
+
+
             BindDataWithView();
         }
 
@@ -63,6 +66,29 @@ namespace AdministratorWydarzen_WinForms.Presenters
 
             var basicEventDto = _mapper.Map<BasicEventDto>(newEvent);
             _eventsDtoBindingSource.Add(basicEventDto);
-        }       
+        }
+
+        private void DeleteEventClickHandler(object? sender, int index)
+        {
+            var clickedBasicEventDto = (BasicEventDto)_eventsDtoBindingSource[index];
+
+            var eventToDelete = _allEvents
+                !.FirstOrDefault(e => e.Id == clickedBasicEventDto.Id);
+
+            _allEvents!.Remove(eventToDelete!);
+            _eventsDtoBindingSource.Remove(clickedBasicEventDto);
+        }
+
+        private void SelectedEventChangedClickHandler(object? sender, int index)
+        {
+            var clickedBasicEventDto = (BasicEventDto)_eventsDtoBindingSource[index];
+
+            var eventToDisplayDetails = _allEvents
+                !.FirstOrDefault(e => e.Id == clickedBasicEventDto.Id);
+
+            var detailedEventDto = _mapper.Map<DetailedEventDto>(eventToDisplayDetails);
+
+            View.DisplayClickedEventDetails(detailedEventDto);
+        }
     }
 }

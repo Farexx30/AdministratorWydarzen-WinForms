@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|c:\\users\\\u0142ukasz\\documents\\studia\\programowanie obiektowe i graficzne\\administratorwydarzenwinforms\\administratorwydarzen-winforms\\models\\eventcsvreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|solutionrelative:administratorwydarzen-winforms\\models\\eventcsvreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\administratorwydarzen-winforms\\views\\maineventview\\eventview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|solutionrelative:administratorwydarzen-winforms\\views\\maineventview\\eventview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|c:\\users\\\u0142ukasz\\documents\\studia\\programowanie obiektowe i graficzne\\administratorwydarzenwinforms\\administratorwydarzen-winforms\\configurations\\appmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|solutionrelative:administratorwydarzen-winforms\\configurations\\appmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|c:\\users\\\u0142ukasz\\documents\\studia\\programowanie obiektowe i graficzne\\administratorwydarzenwinforms\\administratorwydarzen-winforms\\views\\maineventview\\eventview.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|solutionrelative:administratorwydarzen-winforms\\views\\maineventview\\eventview.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|c:\\users\\\u0142ukasz\\documents\\studia\\programowanie obiektowe i graficzne\\administratorwydarzenwinforms\\administratorwydarzen-winforms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|solutionrelative:administratorwydarzen-winforms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|c:\\users\\\u0142ukasz\\documents\\studia\\programowanie obiektowe i graficzne\\administratorwydarzenwinforms\\administratorwydarzen-winforms\\models\\dtos\\detailedeventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|solutionrelative:administratorwydarzen-winforms\\models\\dtos\\detailedeventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\administratorwydarzen-winforms\\presenters\\eventpresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|c:\\users\\\u0142ukasz\\documents\\studia\\programowanie obiektowe i graficzne\\administratorwydarzenwinforms\\administratorwydarzen-winforms\\presenters\\eventpresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|solutionrelative:administratorwydarzen-winforms\\presenters\\eventpresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\administratorwydarzen-winforms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7801AF90-120E-48BB-A0C6-0ED8931176CB}|AdministratorWydarzen-WinForms\\AdministratorWydarzen-WinForms.csproj|solutionrelative:administratorwydarzen-winforms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,28 +38,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EventCsvReader.cs",
-              "DocumentMoniker": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Models\\EventCsvReader.cs",
-              "RelativeDocumentMoniker": "AdministratorWydarzen-WinForms\\Models\\EventCsvReader.cs",
-              "ToolTip": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Models\\EventCsvReader.cs",
-              "RelativeToolTip": "AdministratorWydarzen-WinForms\\Models\\EventCsvReader.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAIAzwBoAAAAnAAAA",
+              "DocumentIndex": 1,
+              "Title": "EventView.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Views\\MainEventView\\EventView.Designer.cs",
+              "RelativeDocumentMoniker": "AdministratorWydarzen-WinForms\\Views\\MainEventView\\EventView.Designer.cs",
+              "ToolTip": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Views\\MainEventView\\EventView.Designer.cs",
+              "RelativeToolTip": "AdministratorWydarzen-WinForms\\Views\\MainEventView\\EventView.Designer.cs",
+              "ViewState": "AQIAACwBAAAAAAAAAAAnwDcBAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-28T18:11:34.464Z",
+              "WhenOpened": "2024-04-29T10:33:40.339Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppManager.cs",
-              "DocumentMoniker": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Configurations\\AppManager.cs",
-              "RelativeDocumentMoniker": "AdministratorWydarzen-WinForms\\Configurations\\AppManager.cs",
-              "ToolTip": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Configurations\\AppManager.cs",
-              "RelativeToolTip": "AdministratorWydarzen-WinForms\\Configurations\\AppManager.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAqwB0AAABLAAAA",
+              "DocumentIndex": 2,
+              "Title": "DetailedEventDto.cs",
+              "DocumentMoniker": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Models\\Dtos\\DetailedEventDto.cs",
+              "RelativeDocumentMoniker": "AdministratorWydarzen-WinForms\\Models\\Dtos\\DetailedEventDto.cs",
+              "ToolTip": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Models\\Dtos\\DetailedEventDto.cs",
+              "RelativeToolTip": "AdministratorWydarzen-WinForms\\Models\\Dtos\\DetailedEventDto.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAmwBgAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-28T16:34:55.559Z",
+              "WhenOpened": "2024-04-29T10:30:21.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EventView.cs",
+              "DocumentMoniker": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Views\\MainEventView\\EventView.cs",
+              "RelativeDocumentMoniker": "AdministratorWydarzen-WinForms\\Views\\MainEventView\\EventView.cs",
+              "ToolTip": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Views\\MainEventView\\EventView.cs",
+              "RelativeToolTip": "AdministratorWydarzen-WinForms\\Views\\MainEventView\\EventView.cs",
+              "ViewState": "AQIAAHAAAAAAAAAAAAAowHUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-28T21:31:47.784Z",
               "EditorCaption": ""
             },
             {
@@ -66,23 +83,22 @@
               "RelativeDocumentMoniker": "AdministratorWydarzen-WinForms\\Presenters\\EventPresenter.cs",
               "ToolTip": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Presenters\\EventPresenter.cs",
               "RelativeToolTip": "AdministratorWydarzen-WinForms\\Presenters\\EventPresenter.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAYwDkAAAAJAAAA",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAswFMAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-28T08:17:54.009Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Program.cs",
               "RelativeDocumentMoniker": "AdministratorWydarzen-WinForms\\Program.cs",
               "ToolTip": "C:\\Users\\\u0141ukasz\\Documents\\Studia\\Programowanie obiektowe i graficzne\\AdministratorWydarzenWinForms\\AdministratorWydarzen-WinForms\\Program.cs",
               "RelativeToolTip": "AdministratorWydarzen-WinForms\\Program.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAnwBUAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAIA4wBUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T08:28:48.598Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-25T08:28:48.598Z"
             }
           ]
         }

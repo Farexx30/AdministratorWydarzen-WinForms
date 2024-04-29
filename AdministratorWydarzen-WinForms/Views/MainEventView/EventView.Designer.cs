@@ -110,6 +110,7 @@
             PriorityComboBox.Name = "PriorityComboBox";
             PriorityComboBox.Size = new Size(154, 23);
             PriorityComboBox.TabIndex = 10;
+            PriorityComboBox.SelectedIndex = 0;
             // 
             // PriorityLabel
             // 
@@ -138,6 +139,7 @@
             TypeComboBox.Name = "TypeComboBox";
             TypeComboBox.Size = new Size(154, 23);
             TypeComboBox.TabIndex = 7;
+            TypeComboBox.SelectedIndex = 0;
             // 
             // EventDateLabel
             // 
@@ -199,6 +201,7 @@
             DeleteEventButton.TabIndex = 12;
             DeleteEventButton.Text = "Usuń";
             DeleteEventButton.UseVisualStyleBackColor = true;
+            DeleteEventButton.Click += DeleteEventButtonClick;
             // 
             // AllEventsListBox
             // 
@@ -209,6 +212,7 @@
             AllEventsListBox.Name = "AllEventsListBox";
             AllEventsListBox.Size = new Size(488, 200);
             AllEventsListBox.TabIndex = 13;
+            AllEventsListBox.SelectedIndexChanged += AllEventsListBoxSelectedIndexChanged;
             // 
             // AllEventsGroupBox
             // 
@@ -263,6 +267,8 @@
             SortDirectionComboBox.Name = "SortDirectionComboBox";
             SortDirectionComboBox.Size = new Size(73, 23);
             SortDirectionComboBox.TabIndex = 25;
+            SortDirectionComboBox.SelectedIndex = 0;
+            SortDirectionComboBox.SelectedIndexChanged += SortDirectionComboBoxSelectedIndexChanged;
             // 
             // SortByLabel
             // 
@@ -309,6 +315,7 @@
             FilterByDateDateTimePicker.Name = "FilterByDateDateTimePicker";
             FilterByDateDateTimePicker.Size = new Size(91, 23);
             FilterByDateDateTimePicker.TabIndex = 20;
+            FilterByDateDateTimePicker.ValueChanged += FilterByDateDateTimePickerValueChanged;
             // 
             // FilterByPriorityComboBox
             // 
@@ -319,6 +326,8 @@
             FilterByPriorityComboBox.Name = "FilterByPriorityComboBox";
             FilterByPriorityComboBox.Size = new Size(91, 23);
             FilterByPriorityComboBox.TabIndex = 19;
+            FilterByPriorityComboBox.SelectedIndex = 0;
+            FilterByPriorityComboBox.SelectedIndexChanged += FilterByPriorityComboBoxSelectedIndexChanged;
             // 
             // SortLabel
             // 
@@ -350,6 +359,8 @@
             SortByComboxBox.Name = "SortByComboxBox";
             SortByComboxBox.Size = new Size(91, 23);
             SortByComboxBox.TabIndex = 15;
+            SortByComboxBox.SelectedIndex = 0;
+            SortByComboxBox.SelectedIndexChanged += SortByComboxBoxSelectedIndexChanged;
             // 
             // FilterByTypeComboBox
             // 
@@ -360,6 +371,8 @@
             FilterByTypeComboBox.Name = "FilterByTypeComboBox";
             FilterByTypeComboBox.Size = new Size(91, 23);
             FilterByTypeComboBox.TabIndex = 14;
+            FilterByTypeComboBox.SelectedIndex = 0;
+            FilterByTypeComboBox.SelectedIndexChanged += FilterByTypeComboBoxSelectedIndexChanged;
             // 
             // EventDetailsGroupBox
             // 
@@ -376,7 +389,10 @@
             EventDetailsTextBox.Location = new Point(0, 22);
             EventDetailsTextBox.Name = "EventDetailsTextBox";
             EventDetailsTextBox.ReadOnly = true;
-            EventDetailsTextBox.Size = new Size(488, 23);
+            EventDetailsTextBox.AutoSize = false;
+            EventDetailsTextBox.Multiline = true;
+            EventDetailsTextBox.ScrollBars = ScrollBars.Vertical;
+            EventDetailsTextBox.Size = new Size(488, 100);
             EventDetailsTextBox.TabIndex = 0;
             // 
             // EventCreatorErrorProvider

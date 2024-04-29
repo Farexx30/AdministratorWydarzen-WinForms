@@ -9,7 +9,10 @@ namespace AdministratorWydarzen_WinForms
         event EventHandler? MainEventViewOnLoadEvent;
         event EventHandler? MainEventViewOnClosedEvent;
         event EventHandler<DetailedEventDto>? AddEventClick;
+        event EventHandler<int>? DeleteEventClick;
+        event EventHandler<int>? SelectedEventChangedClick;
         void BindDataWithPresenter(BindingSource? eventsDto);
+        void DisplayClickedEventDetails(DetailedEventDto detailedEventDto);
     }
 
     public partial class EventView : Form, IEventView
@@ -17,6 +20,8 @@ namespace AdministratorWydarzen_WinForms
         public event EventHandler? MainEventViewOnLoadEvent;
         public event EventHandler? MainEventViewOnClosedEvent;
         public event EventHandler<DetailedEventDto>? AddEventClick;
+        public event EventHandler<int>? DeleteEventClick;
+        public event EventHandler<int>? SelectedEventChangedClick;
 
         public EventView()
         {
@@ -26,6 +31,7 @@ namespace AdministratorWydarzen_WinForms
         private void MainEventViewOnLoad(object sender, EventArgs e)
         {
             MainEventViewOnLoadEvent?.Invoke(this, EventArgs.Empty);
+            AllEventsListBox.SelectedIndex = -1;
         }
 
         private void MainEventViewOnClosed(object sender, EventArgs e)
@@ -43,7 +49,16 @@ namespace AdministratorWydarzen_WinForms
                 & !EventDateDateTimePicker.SetErrorIfBadStartDate(EventCreatorErrorProvider);
         }
 
-        
+        //Clicks:
+        private void DeleteEventButtonClick(object sender, EventArgs e)
+        {
+            if(AllEventsListBox.SelectedIndex != -1)
+            {
+                DeleteEventClick?.Invoke(this, AllEventsListBox.SelectedIndex);
+                EventDetailsTextBox.Text = string.Empty;
+            }
+        }
+
         private void AddEventButtonClick(object sender, EventArgs e)
         {
             if (CheckAllPossibleErrors())
@@ -67,6 +82,46 @@ namespace AdministratorWydarzen_WinForms
             return eventDto;
         }
 
+        private void AllEventsListBoxSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(AllEventsListBox.SelectedIndex != -1)
+            {
+                SelectedEventChangedClick?.Invoke(this, AllEventsListBox.SelectedIndex);
+            }
+        }
+
+        public void DisplayClickedEventDetails(DetailedEventDto detailedEventDto)
+        {
+            EventDetailsTextBox.Text = detailedEventDto.ToString();
+        }
+
+
+        //Filters/sorts:
+        private void FilterByDateDateTimePickerValueChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("1");
+        }
+
+        private void FilterByTypeComboBoxSelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("2");
+        }
+
+        private void FilterByPriorityComboBoxSelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("3");
+        }
+
+        private void SortByComboxBoxSelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("4");
+        }
+
+        private void SortDirectionComboBoxSelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("5");
+        }
+
 
         //UI logic connected with data filter: 
         private void FilterByDateCheckBoxMouseHover(object sender, EventArgs e)
@@ -78,5 +133,6 @@ namespace AdministratorWydarzen_WinForms
         {
             FilterByDateDateTimePicker.Enabled ^= true;
         }
+
     }
 }
