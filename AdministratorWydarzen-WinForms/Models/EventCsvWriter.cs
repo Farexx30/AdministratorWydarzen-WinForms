@@ -17,12 +17,12 @@ namespace AdministratorWydarzen_WinForms.Models
 
     public class EventCsvWriter : IEventCsvWriter
     {
-        public void WriteEvents(List<Event>? events) //UZYJE CSV
+        public void WriteEvents(List<Event>? events)
         {
             string dataDirectory = Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.FullName;
             string filePath = $@"{dataDirectory}\Data\Events.csv";
 
-            var csvWriterConfig = new CsvConfiguration(CultureInfo.GetCultureInfo("en-EN"))
+            var csvWriterConfig = new CsvConfiguration(CultureInfo.GetCultureInfo("pl-PL"))
             {
                 Delimiter = ";"
             };

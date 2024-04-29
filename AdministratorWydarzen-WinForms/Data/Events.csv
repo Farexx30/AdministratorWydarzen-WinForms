@@ -1,4 +1,9 @@
 Id;Title;Description;StartDate;EventType;EventPriority
-1;Wydarzenie1;Super wydarzenie, polecamy!!!;5/5/2024 2:00:51 PM;Family;MediumPriority
-2;Koncert Taco Hemingway;Super wydarzenie, polecamy!!!;5/17/2024 7:30:51 PM;Entertainment;HighPriority
-3;Mecz Zaglebie vs Gieksa;ZAGLEBIE CZY GIEKSA???ODWAŻYSZ SIE?!;6/6/2024 8:30:53 PM;Sport;HighPriority
+1;Wydarzenie1;Super wydarzenie, polecamy!!!;05.05.2024 14:00:51;Family;MediumPriority
+2;Koncert Taco Hemingway;Super wydarzenie, polecamy!!!;17.05.2024 19:30:51;Entertainment;HighPriority
+3;Mecz Zaglebie vs Gieksa;ZAGLEBIE CZY GIEKSA???ODWAŻYSZ SIE?!;06.06.2024 20:30:53;Sport;HighPriority
+4;Piwo z ziomkami;Pyszne piwerko z ziomeczkami;09.05.2024 15:40:06;Health;LowPriority
+5;Testowe wydarzenie;Opis wydarzenia;20.05.2024 10:00:08;Work;LowPriority
+6;Wypad do Energylandii;Rollecoastery i takie tam, wiesz o co chodzi;28.05.2024 09:00:47;Entertainment;LowPriority
+17;Wypad do legendii;Bliższa mini Energylandia, zapraszamy!!!;30.04.2024 11:00:48;Entertainment;MediumPriority
+20;Piknik przy szkole;Zapraszamy na piknik przy szkole podstawowej nr.10 im.Leo Messiego;15.06.2024 13:30:49;Family;LowPriority

@@ -134,7 +134,7 @@
             // 
             TypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             TypeComboBox.FormattingEnabled = true;
-            TypeComboBox.Items.AddRange(new object[] { "Praca", "Rodzina", "Rozrywka", "Zdrowie", "Sport" });
+            TypeComboBox.Items.AddRange(new object[] { "Praca", "Rodzina", "Rozrywka", "Sport", "Zdrowie" });
             TypeComboBox.Location = new Point(84, 246);
             TypeComboBox.Name = "TypeComboBox";
             TypeComboBox.Size = new Size(154, 23);
@@ -212,6 +212,9 @@
             AllEventsListBox.Name = "AllEventsListBox";
             AllEventsListBox.Size = new Size(488, 200);
             AllEventsListBox.TabIndex = 13;
+            AllEventsListBox.HorizontalScrollbar = true;
+            AllEventsListBox.DrawMode = DrawMode.OwnerDrawFixed;
+            AllEventsListBox.DrawItem += AllEventsListBoxDrawItems;
             AllEventsListBox.SelectedIndexChanged += AllEventsListBoxSelectedIndexChanged;
             // 
             // AllEventsGroupBox
@@ -268,7 +271,7 @@
             SortDirectionComboBox.Size = new Size(73, 23);
             SortDirectionComboBox.TabIndex = 25;
             SortDirectionComboBox.SelectedIndex = 0;
-            SortDirectionComboBox.SelectedIndexChanged += SortDirectionComboBoxSelectedIndexChanged;
+            SortDirectionComboBox.SelectedIndexChanged += SortDataChangedEvent;
             // 
             // SortByLabel
             // 
@@ -315,7 +318,7 @@
             FilterByDateDateTimePicker.Name = "FilterByDateDateTimePicker";
             FilterByDateDateTimePicker.Size = new Size(91, 23);
             FilterByDateDateTimePicker.TabIndex = 20;
-            FilterByDateDateTimePicker.ValueChanged += FilterByDateDateTimePickerValueChanged;
+            FilterByDateDateTimePicker.ValueChanged += FiltersChangedEvent;
             // 
             // FilterByPriorityComboBox
             // 
@@ -327,7 +330,7 @@
             FilterByPriorityComboBox.Size = new Size(91, 23);
             FilterByPriorityComboBox.TabIndex = 19;
             FilterByPriorityComboBox.SelectedIndex = 0;
-            FilterByPriorityComboBox.SelectedIndexChanged += FilterByPriorityComboBoxSelectedIndexChanged;
+            FilterByPriorityComboBox.SelectedIndexChanged += FiltersChangedEvent;
             // 
             // SortLabel
             // 
@@ -360,19 +363,19 @@
             SortByComboxBox.Size = new Size(91, 23);
             SortByComboxBox.TabIndex = 15;
             SortByComboxBox.SelectedIndex = 0;
-            SortByComboxBox.SelectedIndexChanged += SortByComboxBoxSelectedIndexChanged;
+            SortByComboxBox.SelectedIndexChanged += SortDataChangedEvent;
             // 
             // FilterByTypeComboBox
             // 
             FilterByTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             FilterByTypeComboBox.FormattingEnabled = true;
-            FilterByTypeComboBox.Items.AddRange(new object[] { "Bez filtru", "Praca", "Rodzina", "Rozrywka", "Zdrowie", "Sport" });
+            FilterByTypeComboBox.Items.AddRange(new object[] { "Bez filtru", "Praca", "Rodzina", "Rozrywka", "Sport", "Zdrowie" });
             FilterByTypeComboBox.Location = new Point(102, 45);
             FilterByTypeComboBox.Name = "FilterByTypeComboBox";
             FilterByTypeComboBox.Size = new Size(91, 23);
             FilterByTypeComboBox.TabIndex = 14;
             FilterByTypeComboBox.SelectedIndex = 0;
-            FilterByTypeComboBox.SelectedIndexChanged += FilterByTypeComboBoxSelectedIndexChanged;
+            FilterByTypeComboBox.SelectedIndexChanged += FiltersChangedEvent;
             // 
             // EventDetailsGroupBox
             // 

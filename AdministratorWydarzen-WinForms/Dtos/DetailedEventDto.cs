@@ -1,11 +1,10 @@
-﻿using AdministratorWydarzen_WinForms.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdministratorWydarzen_WinForms.Models.Dtos
+namespace AdministratorWydarzen_WinForms.Dtos
 {
     public class DetailedEventDto
     {
@@ -19,7 +18,7 @@ namespace AdministratorWydarzen_WinForms.Models.Dtos
         public override string ToString()
         {
             string eventTypeString = MapFromEventTypeId(EventTypeId);
-            string eventPriorityString = MapFromPriorityId(EventPriorityId);
+            string eventPriorityString = MapFromEventPriorityId(EventPriorityId);
 
             return $"Tytuł: {Title}{Environment.NewLine}" +
                 $"Opis: {Description}{Environment.NewLine}" +
@@ -32,16 +31,16 @@ namespace AdministratorWydarzen_WinForms.Models.Dtos
         {
             return eventTypeId switch
             {
-                0 => "W pracy",
-                1 => "Rodzinne",
+                0 => "Praca",
+                1 => "Rodzina",
                 2 => "Rozrywka",
-                3 => "Zdrowie",
-                4 => "Sport",
+                3 => "Sport",
+                4 => "Zdrowie",
                 _ => string.Empty
             };
         }
 
-        private static string MapFromPriorityId(int eventPriorityId)
+        private static string MapFromEventPriorityId(int eventPriorityId)
         {
             return eventPriorityId switch
             {

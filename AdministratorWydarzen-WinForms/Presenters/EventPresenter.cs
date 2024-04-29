@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using AdministratorWydarzen_WinForms.Configurations;
+using AdministratorWydarzen_WinForms.Dtos;
 using AdministratorWydarzen_WinForms.Models;
-using AdministratorWydarzen_WinForms.Models.Dtos;
 using AutoMapper;
 
 namespace AdministratorWydarzen_WinForms.Presenters
@@ -21,25 +22,27 @@ namespace AdministratorWydarzen_WinForms.Presenters
         private readonly IEventCsvReader _csvReader;
         private readonly IEventCsvWriter _csvWriter;
         private readonly IMapper _mapper;
+        private readonly IEventData _eventData;
 
-        private List<Event>? _allEvents = [];
         private readonly BindingSource _eventsDtoBindingSource = [];
 
         public IEventView View { get; }
 
-        public EventPresenter(IEventView view, IEventCsvReader csvReader, IEventCsvWriter csvWriter, IMapper mapper)
+        public EventPresenter(IEventView view, IMapper mapper, IEventCsvReader csvReader, IEventCsvWriter csvWriter, IEventData eventData)
         {   
             View = view;
             _mapper = mapper;
             _csvReader = csvReader;
             _csvWriter = csvWriter;
+            _eventData = eventData;
           
             View.MainEventViewOnLoadEvent += MainEventViewOnLoadEventHandler;
             View.MainEventViewOnClosedEvent += MainEventViewOnClosedEventHandler;
             View.AddEventClick += AddEventClickHandler;
             View.DeleteEventClick += DeleteEventClickHandler;
             View.SelectedEventChangedClick += SelectedEventChangedClickHandler;
-
+            View.EventFiltersChanged += EventFiltersChangedHandler;
+            View.EventSortDataChanged += EventSortDataChangedHandler;
 
             BindDataWithView();
         }
@@ -48,13 +51,14 @@ namespace AdministratorWydarzen_WinForms.Presenters
 
         private void MainEventViewOnLoadEventHandler(object? sender, EventArgs e)
         {
-            _allEvents = _csvReader.ReadEvents();
-            _eventsDtoBindingSource.DataSource = _mapper.Map<List<BasicEventDto>>(_allEvents);
+            _eventData.AllEvents = _csvReader.ReadEvents();
+            _eventsDtoBindingSource.DataSource = _mapper.Map<List<BasicEventDto>>(_eventData.AllEvents);
+            EventSortDataChangedHandler(this, new SortDataEventDto());
         }
 
         private void MainEventViewOnClosedEventHandler(object? sender, EventArgs e)
         {
-            _csvWriter.WriteEvents(_allEvents);
+            _csvWriter.WriteEvents(_eventData.AllEvents);
         }
 
         private void AddEventClickHandler(object? sender, DetailedEventDto detailedEventDto)
@@ -62,7 +66,7 @@ namespace AdministratorWydarzen_WinForms.Presenters
             detailedEventDto.Id = ++AppManager.NumberOfEventsCreated;
 
             var newEvent = _mapper.Map<Event>(detailedEventDto);
-            _allEvents?.Add(newEvent);
+            _eventData.AllEvents?.Add(newEvent);
 
             var basicEventDto = _mapper.Map<BasicEventDto>(newEvent);
             _eventsDtoBindingSource.Add(basicEventDto);
@@ -72,10 +76,10 @@ namespace AdministratorWydarzen_WinForms.Presenters
         {
             var clickedBasicEventDto = (BasicEventDto)_eventsDtoBindingSource[index];
 
-            var eventToDelete = _allEvents
+            var eventToDelete = _eventData.AllEvents
                 !.FirstOrDefault(e => e.Id == clickedBasicEventDto.Id);
 
-            _allEvents!.Remove(eventToDelete!);
+            _eventData.AllEvents!.Remove(eventToDelete!);
             _eventsDtoBindingSource.Remove(clickedBasicEventDto);
         }
 
@@ -83,12 +87,46 @@ namespace AdministratorWydarzen_WinForms.Presenters
         {
             var clickedBasicEventDto = (BasicEventDto)_eventsDtoBindingSource[index];
 
-            var eventToDisplayDetails = _allEvents
+            var eventToDisplayDetails = _eventData.AllEvents
                 !.FirstOrDefault(e => e.Id == clickedBasicEventDto.Id);
 
             var detailedEventDto = _mapper.Map<DetailedEventDto>(eventToDisplayDetails);
 
             View.DisplayClickedEventDetails(detailedEventDto);
+        }
+
+        //Filters/Sorts handlers:
+        private void EventFiltersChangedHandler(object? sender, FiltersEventDto filters)
+        {
+            var eventsToDisplay = _eventData.AllEvents
+                !.Where(e => (filters.FilterByDateValue == null || DateOnly.Parse(e.StartDate.ToString("dd.MM.yyyy")) == filters.FilterByDateValue)
+                && (filters.FilterByTypeValueId == null || (int)e.EventType == filters.FilterByTypeValueId)
+                && (filters.FilterByPriorityValueId == null || (int)e.EventPriority == filters.FilterByPriorityValueId))
+                .ToList();
+
+            var eventsToDisplayDtos = _mapper.Map<List<BasicEventDto>>(eventsToDisplay);
+
+            _eventsDtoBindingSource.DataSource = eventsToDisplayDtos;
+        }
+
+        private void EventSortDataChangedHandler(object? sender, SortDataEventDto sortData)
+        {
+            var displayedEvents = (List<BasicEventDto>)_eventsDtoBindingSource.DataSource;
+
+            var columnsSelector = new Dictionary<int, Expression<Func<BasicEventDto, object>>>()
+            {
+                { 0, e => e.StartDate },
+                { 1, e => e.EventTypeId },
+                { 2, e => e.EventPriorityId },
+            };
+
+            var selectedColumn = columnsSelector[sortData.SortByValueId];
+
+            displayedEvents = sortData.SortDirection == SortDirection.ASC
+               ? displayedEvents.AsQueryable().OrderBy(selectedColumn).ToList() 
+               : displayedEvents.AsQueryable().OrderByDescending(selectedColumn).ToList();
+
+            _eventsDtoBindingSource.DataSource = displayedEvents;
         }
     }
 }

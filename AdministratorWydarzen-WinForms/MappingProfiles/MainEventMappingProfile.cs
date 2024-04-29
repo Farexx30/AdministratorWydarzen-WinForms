@@ -1,5 +1,5 @@
-﻿using AdministratorWydarzen_WinForms.Models;
-using AdministratorWydarzen_WinForms.Models.Dtos;
+﻿using AdministratorWydarzen_WinForms.Dtos;
+using AdministratorWydarzen_WinForms.Models;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,8 @@ namespace AdministratorWydarzen_WinForms.MappingProfiles
                 .ForMember(e => e.EventPriority, e => e.MapFrom(t => (EventPriority)t.EventPriorityId));
 
             CreateMap<Event, BasicEventDto>()
-                .ForMember(e => e.EventTypeId, e => e.MapFrom(t => (int)t.EventType));
+                .ForMember(e => e.EventTypeId, e => e.MapFrom(t => (int)t.EventType))
+                .ForMember(e => e.EventPriorityId, e => e.MapFrom(p => (int)p.EventPriority));
         }
     }
 }

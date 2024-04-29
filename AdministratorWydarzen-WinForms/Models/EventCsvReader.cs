@@ -32,7 +32,7 @@ namespace AdministratorWydarzen_WinForms.Models
             {
                 if (new FileInfo(filePath).Length != 0)
                 {
-                    var csvReaderConfig = new CsvConfiguration(CultureInfo.GetCultureInfo("en-EN"))
+                    var csvReaderConfig = new CsvConfiguration(CultureInfo.GetCultureInfo("pl-PL"))
                     {
                         Delimiter = ";",
                     };

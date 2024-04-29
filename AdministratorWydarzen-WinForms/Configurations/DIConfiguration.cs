@@ -28,6 +28,7 @@ namespace AdministratorWydarzen_WinForms.Configurations
             services.AddTransient<IEventPresenter, EventPresenter>();
             services.AddTransient<IEventCsvReader, EventCsvReader>();
             services.AddTransient<IEventCsvWriter, EventCsvWriter>();
+            services.AddTransient<IEventData, EventData>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
