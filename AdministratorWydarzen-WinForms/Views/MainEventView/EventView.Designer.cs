@@ -165,6 +165,7 @@
             DescriptionTextBox.Location = new Point(84, 79);
             DescriptionTextBox.Multiline = true;
             DescriptionTextBox.Name = "DescriptionTextBox";
+            DescriptionTextBox.MaxLength = 150;
             DescriptionTextBox.Size = new Size(189, 100);
             DescriptionTextBox.TabIndex = 4;
             // 
@@ -190,6 +191,7 @@
             // 
             TitleTextBox.Location = new Point(84, 34);
             TitleTextBox.Name = "TitleTextBox";
+            TitleTextBox.MaxLength = 48;
             TitleTextBox.Size = new Size(154, 23);
             TitleTextBox.TabIndex = 0;
             // 
@@ -215,7 +217,7 @@
             AllEventsListBox.HorizontalScrollbar = true;
             AllEventsListBox.DrawMode = DrawMode.OwnerDrawFixed;
             AllEventsListBox.DrawItem += AllEventsListBoxDrawItems;
-            AllEventsListBox.SelectedIndexChanged += AllEventsListBoxSelectedIndexChanged;
+            AllEventsListBox.Click += AllEventsListBoxClick;
             // 
             // AllEventsGroupBox
             // 

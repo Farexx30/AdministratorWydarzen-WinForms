@@ -98,11 +98,7 @@ namespace AdministratorWydarzen_WinForms.Presenters
         //Filters/Sorts handlers:
         private void EventFiltersChangedHandler(object? sender, FiltersEventDto filters)
         {
-            var eventsToDisplay = _eventData.AllEvents
-                !.Where(e => (filters.FilterByDateValue == null || DateOnly.Parse(e.StartDate.ToString("dd.MM.yyyy")) == filters.FilterByDateValue)
-                && (filters.FilterByTypeValueId == null || (int)e.EventType == filters.FilterByTypeValueId)
-                && (filters.FilterByPriorityValueId == null || (int)e.EventPriority == filters.FilterByPriorityValueId))
-                .ToList();
+            var eventsToDisplay = _eventData.FilterEvents(filters);
 
             var eventsToDisplayDtos = _mapper.Map<List<BasicEventDto>>(eventsToDisplay);
 
@@ -111,22 +107,9 @@ namespace AdministratorWydarzen_WinForms.Presenters
 
         private void EventSortDataChangedHandler(object? sender, SortDataEventDto sortData)
         {
-            var displayedEvents = (List<BasicEventDto>)_eventsDtoBindingSource.DataSource;
+            var sortedEvents = _eventData.SortEvents((List<BasicEventDto>)_eventsDtoBindingSource.DataSource, sortData);
 
-            var columnsSelector = new Dictionary<int, Expression<Func<BasicEventDto, object>>>()
-            {
-                { 0, e => e.StartDate },
-                { 1, e => e.EventTypeId },
-                { 2, e => e.EventPriorityId },
-            };
-
-            var selectedColumn = columnsSelector[sortData.SortByValueId];
-
-            displayedEvents = sortData.SortDirection == SortDirection.ASC
-               ? displayedEvents.AsQueryable().OrderBy(selectedColumn).ToList() 
-               : displayedEvents.AsQueryable().OrderByDescending(selectedColumn).ToList();
-
-            _eventsDtoBindingSource.DataSource = displayedEvents;
+            _eventsDtoBindingSource.DataSource = sortedEvents;
         }
     }
 }

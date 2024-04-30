@@ -16,9 +16,11 @@ namespace AdministratorWydarzen_WinForms
         void BindDataWithPresenter(BindingSource? eventsDto);
         void DisplayClickedEventDetails(DetailedEventDto detailedEventDto);
     }
-    //OGOLNIE DO ZROBIENIA JESZCZE: LOGIKA ODKLIKIWANIA EVENTU, dodaæ max ilosc znakow dla tytulu/opisu ORAZ POPRAWA WYWOLAN METOD ITD. BO DA SIE WIELE ULEPSZYC PEWNIE, NO I + ASYNC + to archiwum tez moze.
+    //OGOLNIE DO ZROBIENIA JESZCZE:  poukladac pewne rzeczy/moze cos poprzenosic itd, NO I ASYNC + to archiwum tez moze.
     public partial class EventView : Form, IEventView
     {
+        private int _lastClickedIndex = -2;
+
         public event EventHandler? MainEventViewOnLoadEvent;
         public event EventHandler? MainEventViewOnClosedEvent;
         public event EventHandler<DetailedEventDto>? AddEventClick;
@@ -45,7 +47,8 @@ namespace AdministratorWydarzen_WinForms
 
         public void BindDataWithPresenter(BindingSource? eventsDto) => AllEventsListBox.DataSource = eventsDto;
 
-        //Errors while creating event logic:
+
+        //Errors logic while creating event:
         private bool CheckAllPossibleErrors()
         {
             return !TitleTextBox.SetErrorIfEmptyTextBox(EventCreatorErrorProvider)
@@ -56,10 +59,13 @@ namespace AdministratorWydarzen_WinForms
         //Clicks:
         private void DeleteEventButtonClick(object sender, EventArgs e)
         {
-            if(AllEventsListBox.SelectedIndex != -1)
+            if (AllEventsListBox.SelectedIndex != -1)
             {
                 DeleteEventClick?.Invoke(this, AllEventsListBox.SelectedIndex);
-                EventDetailsTextBox.Text = string.Empty;
+
+                AllEventsListBox.ClearSelected();
+                EventDetailsTextBox.Clear();
+                _lastClickedIndex = -2;
             }
         }
 
@@ -75,14 +81,27 @@ namespace AdministratorWydarzen_WinForms
 
                 var sortData = GetSortData();
                 EventSortDataChanged?.Invoke(this, sortData);
+
+                SetDefaultValuesToAllBoxes();
+                AllEventsListBox.ClearSelected();
+                EventDetailsTextBox.Clear();
+                _lastClickedIndex = -2;
             }
         }
 
-        private void AllEventsListBoxSelectedIndexChanged(object sender, EventArgs e)
+        private void AllEventsListBoxClick(object sender, EventArgs e)
         {
-            if(AllEventsListBox.SelectedIndex != -1)
+            if (_lastClickedIndex == AllEventsListBox.SelectedIndex)
+            {
+                AllEventsListBox.ClearSelected();
+                EventDetailsTextBox.Clear();
+                _lastClickedIndex = -2;
+            }
+            else if(AllEventsListBox.SelectedIndex != -1)
             {
                 SelectedEventChangedClick?.Invoke(this, AllEventsListBox.SelectedIndex);
+
+                _lastClickedIndex = AllEventsListBox.SelectedIndex;
             }
         }
 
@@ -101,8 +120,9 @@ namespace AdministratorWydarzen_WinForms
             var sortData = GetSortData();
             EventSortDataChanged?.Invoke(this, sortData);
 
-            EventDetailsTextBox.Text = string.Empty;
+            EventDetailsTextBox.Clear();
             AllEventsListBox.SelectedIndex = -1;
+            _lastClickedIndex = -2;
         }
 
         private void SortDataChangedEvent(object sender, EventArgs e)
@@ -110,8 +130,9 @@ namespace AdministratorWydarzen_WinForms
             var sortData = GetSortData();
             EventSortDataChanged?.Invoke(this, sortData);
 
-            EventDetailsTextBox.Text = string.Empty;
+            EventDetailsTextBox.Clear();
             AllEventsListBox.SelectedIndex = -1;
+            _lastClickedIndex = -2;
         }
         
 
@@ -156,34 +177,47 @@ namespace AdministratorWydarzen_WinForms
         //Drawing items in ListBox:
         private void AllEventsListBoxDrawItems(object sender, DrawItemEventArgs e)
         {
-            e.DrawBackground();
-
-            var currentItemText = AllEventsListBox.Items[e.Index].ToString();
-            var currentItemTextSize = e.Graphics.MeasureString(currentItemText, e.Font!);            
-            if (currentItemTextSize.Width > AllEventsListBox.HorizontalExtent)
+            if (e.Index != -1)
             {
-                AllEventsListBox.HorizontalExtent = (int)currentItemTextSize.Width;
-            }
+                e.DrawBackground();
 
-            Brush brush = GetBrush(e.Index);
+                var currentItemText = AllEventsListBox.Items[e.Index].ToString();
+                var currentItemTextSize = e.Graphics.MeasureString(currentItemText, e.Font!);
+                if (currentItemTextSize.Width > AllEventsListBox.HorizontalExtent)
+                {
+                    AllEventsListBox.HorizontalExtent = (int)currentItemTextSize.Width;
+                }
 
-            e.Graphics.DrawString(currentItemText, e.Font!, brush, e.Bounds);
+                Brush brush = GetBrush(e.Index);
+
+                e.Graphics.DrawString(currentItemText, e.Font!, brush, e.Bounds);
+            }           
         }
 
         private Brush GetBrush(int index)
         {
-            var drawingElement = (BasicEventDto)AllEventsListBox.Items[index];
-            int eventTypeOfdrawingElement = drawingElement.EventTypeId;
+            var currentElement = (BasicEventDto)AllEventsListBox.Items[index];
+            int eventTypeOfcurrentElement = currentElement.EventTypeId;
 
-            return eventTypeOfdrawingElement switch
+            return eventTypeOfcurrentElement switch
             {
                 0 => Brushes.BlueViolet,
-                1 => Brushes.Green,
+                1 => Brushes.Maroon,
                 2 => Brushes.Orange,
                 3 => Brushes.Tan,
                 4 => Brushes.YellowGreen,
                 _ => null!,
             };
+        }
+
+        //UI logic clearing all boxes:
+        private void SetDefaultValuesToAllBoxes()
+        {
+            TitleTextBox.Clear();
+            DescriptionTextBox.Clear();
+            EventDateDateTimePicker.Value = DateTime.Now;
+            TypeComboBox.SelectedIndex = 0;
+            PriorityComboBox.SelectedIndex = 0;
         }
 
         //UI logic connected with data filter: 
