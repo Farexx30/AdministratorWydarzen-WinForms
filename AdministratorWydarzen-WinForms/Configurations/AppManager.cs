@@ -25,7 +25,7 @@ namespace AdministratorWydarzen_WinForms.Configurations
             }
         }
 
-        public static void SaveNumberOfEventsCreated(object? sender, EventArgs e)
+        public static void SaveNumberOfEventsCreated()
         {
             File.WriteAllText(_filePath, NumberOfEventsCreated.ToString());
         }

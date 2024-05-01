@@ -17,8 +17,6 @@ namespace AdministratorWydarzen_WinForms
             ApplicationConfiguration.Initialize();
 
             DIConfiguration.ServiceProvider = builder.Services;
-            AppManager.ReadNumberOfEventsCreated();
-            Application.ApplicationExit += AppManager.SaveNumberOfEventsCreated;
 
             var eventPresenter = DIConfiguration.ServiceProvider.GetRequiredService<IEventPresenter>();
 

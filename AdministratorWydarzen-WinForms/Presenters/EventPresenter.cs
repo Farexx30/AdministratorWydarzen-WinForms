@@ -51,14 +51,18 @@ namespace AdministratorWydarzen_WinForms.Presenters
 
         private void MainEventViewOnLoadEventHandler(object? sender, EventArgs e)
         {
+            AppManager.ReadNumberOfEventsCreated();
+
             _eventData.AllEvents = _csvReader.ReadEvents();
             _eventsDtoBindingSource.DataSource = _mapper.Map<List<BasicEventDto>>(_eventData.AllEvents);
+
             EventSortDataChangedHandler(this, new SortDataEventDto());
         }
 
         private void MainEventViewOnClosedEventHandler(object? sender, EventArgs e)
         {
             _csvWriter.WriteEvents(_eventData.AllEvents);
+            AppManager.SaveNumberOfEventsCreated();
         }
 
         private void AddEventClickHandler(object? sender, DetailedEventDto detailedEventDto)

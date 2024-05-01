@@ -78,7 +78,6 @@ namespace AdministratorWydarzen_WinForms
 
                 var filters = GetFilters();
                 EventFiltersChanged?.Invoke(this, filters);
-
                 var sortData = GetSortData();
                 EventSortDataChanged?.Invoke(this, sortData);
 
@@ -116,7 +115,6 @@ namespace AdministratorWydarzen_WinForms
         {
             var filters = GetFilters();
             EventFiltersChanged?.Invoke(this, filters);
-
             var sortData = GetSortData();
             EventSortDataChanged?.Invoke(this, sortData);
 
@@ -210,6 +208,7 @@ namespace AdministratorWydarzen_WinForms
             };
         }
 
+
         //UI logic clearing all boxes:
         private void SetDefaultValuesToAllBoxes()
         {
@@ -220,6 +219,7 @@ namespace AdministratorWydarzen_WinForms
             PriorityComboBox.SelectedIndex = 0;
         }
 
+
         //UI logic connected with data filter: 
         private void FilterByDateCheckBoxMouseHover(object sender, EventArgs e)
         {
@@ -229,7 +229,7 @@ namespace AdministratorWydarzen_WinForms
         private void FilterByDateCheckBoxCheckedChanged(object sender, EventArgs e)
         {
             FilterByDateDateTimePicker.Enabled ^= true;
-            FiltersChangedEvent(sender, e);
+            FiltersChangedEvent(this, EventArgs.Empty);
         }
     }
 }
