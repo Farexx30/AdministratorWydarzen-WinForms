@@ -47,8 +47,11 @@ namespace AdministratorWydarzen_WinForms.Presenters
             BindDataWithView();
         }
 
+        //Bind data with View:
         private void BindDataWithView() => View.BindDataWithPresenter(_eventsDtoBindingSource);
 
+
+        //OnLoad logic:
         private void MainEventViewOnLoadEventHandler(object? sender, EventArgs e)
         {
             AppManager.ReadNumberOfEventsCreated();
@@ -59,12 +62,15 @@ namespace AdministratorWydarzen_WinForms.Presenters
             EventSortDataChangedHandler(this, new SortDataEventDto());
         }
 
+        //OnClosed logic:
         private void MainEventViewOnClosedEventHandler(object? sender, EventArgs e)
         {
             _csvWriter.WriteEvents(_eventData.AllEvents);
             AppManager.SaveNumberOfEventsCreated();
         }
 
+
+        //AddEvent handler:
         private void AddEventClickHandler(object? sender, DetailedEventDto detailedEventDto)
         {
             detailedEventDto.Id = ++AppManager.NumberOfEventsCreated;
@@ -75,31 +81,36 @@ namespace AdministratorWydarzen_WinForms.Presenters
             var basicEventDto = _mapper.Map<BasicEventDto>(newEvent);
             _eventsDtoBindingSource.Add(basicEventDto);
         }
+            
 
+        //DeleteEvent handler:
         private void DeleteEventClickHandler(object? sender, int index)
         {
             var clickedBasicEventDto = (BasicEventDto)_eventsDtoBindingSource[index];
 
             var eventToDelete = _eventData.AllEvents
-                !.FirstOrDefault(e => e.Id == clickedBasicEventDto.Id);
+                !.First(e => e.Id == clickedBasicEventDto.Id);
 
             _eventData.AllEvents!.Remove(eventToDelete!);
             _eventsDtoBindingSource.Remove(clickedBasicEventDto);
         }
 
+
+        //SelectEvent handler:
         private void SelectedEventChangedClickHandler(object? sender, int index)
         {
             var clickedBasicEventDto = (BasicEventDto)_eventsDtoBindingSource[index];
 
             var eventToDisplayDetails = _eventData.AllEvents
-                !.FirstOrDefault(e => e.Id == clickedBasicEventDto.Id);
+                !.First(e => e.Id == clickedBasicEventDto.Id);
 
             var detailedEventDto = _mapper.Map<DetailedEventDto>(eventToDisplayDetails);
 
             View.DisplayClickedEventDetails(detailedEventDto);
         }
 
-        //Filters/Sorts handlers:
+
+        //Filters and sorts handlers:
         private void EventFiltersChangedHandler(object? sender, FiltersEventDto filters)
         {
             var eventsToDisplay = _eventData.FilterEvents(filters);

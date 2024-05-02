@@ -10,14 +10,14 @@ namespace AdministratorWydarzen_WinForms.Models
 {
     public interface IEventData
     {
-        List<Event>? AllEvents { get; set; }
+        List<Event> AllEvents { get; set; }
         List<Event> FilterEvents(FiltersEventDto filters);    
         List<BasicEventDto> SortEvents(List<BasicEventDto> displayedEvents, SortDataEventDto sortData);       
     }
 
     public class EventData : IEventData
     {
-        public List<Event>? AllEvents { get; set; }
+        public List<Event> AllEvents { get; set; } = [];
 
         public List<Event> FilterEvents(FiltersEventDto filters)
         {

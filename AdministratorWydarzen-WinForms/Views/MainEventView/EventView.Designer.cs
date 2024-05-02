@@ -154,6 +154,7 @@
             // 
             EventDateDateTimePicker.CalendarFont = new Font("Segoe UI", 9F);
             EventDateDateTimePicker.CustomFormat = "dd.MM.yyyy HH:mm";
+            EventDateDateTimePicker.MinDate = DateTime.Now;
             EventDateDateTimePicker.Format = DateTimePickerFormat.Custom;
             EventDateDateTimePicker.Location = new Point(84, 200);
             EventDateDateTimePicker.Name = "EventDateDateTimePicker";

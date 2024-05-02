@@ -13,12 +13,12 @@ namespace AdministratorWydarzen_WinForms.Models
 {
     public interface IEventCsvReader
     {
-        List<Event>? ReadEvents();
+        List<Event> ReadEvents();
     }
 
     public class EventCsvReader : IEventCsvReader
     {
-        public List<Event>? ReadEvents()
+        public List<Event> ReadEvents()
         {
             string dataDirectory = Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.FullName;
             string filePath = $@"{dataDirectory}\Data\Events.csv";

@@ -26,7 +26,7 @@ namespace AdministratorWydarzen_WinForms.Views.MainView
         {
             if (EventDateDateTimePicker.Value < DateTime.Now.AddHours(1))
             {
-                EventCreatorErrorProvider.SetError(EventDateDateTimePicker, "Niepoprawna data rozpoczęcia wydarzenia");
+                EventCreatorErrorProvider.SetError(EventDateDateTimePicker, "Niepoprawna data rozpoczęcia wydarzenia (min. 1 godzina od aktualnej godziny)");
                 EventCreatorErrorProvider.SetIconAlignment(EventDateDateTimePicker, ErrorIconAlignment.TopRight);
                 return true;
             }

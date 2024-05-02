@@ -20,11 +20,17 @@ namespace AdministratorWydarzen_WinForms.Dtos
             string eventTypeString = MapFromEventTypeId(EventTypeId);
             string eventPriorityString = MapFromEventPriorityId(EventPriorityId);
 
-            return $"Tytuł: {Title}{Environment.NewLine}" +
+            string eventInfo =  $"Tytuł: {Title}{Environment.NewLine}" +
                 $"Opis: {Description}{Environment.NewLine}" +
                 $"Data i godzina rozpoczęcia: {StartDate:dd.MM.yyyy-HH:mm}{Environment.NewLine}" +
                 $"Typ wydarzenia: {eventTypeString}{Environment.NewLine}" +
-                $"Priorytet wydarzenia: {eventPriorityString}";
+                $"Priorytet wydarzenia: {eventPriorityString}{Environment.NewLine}";
+
+            eventInfo += StartDate > DateTime.Now 
+                ? "Status: Możesz jeszcze wziąć udział w tym wydarzeniu" 
+                : "Status: Nie możesz już wziąć udziału w tym wydarzeniu"; 
+
+            return eventInfo;
         }
 
         private static string MapFromEventTypeId(int eventTypeId)
@@ -51,6 +57,4 @@ namespace AdministratorWydarzen_WinForms.Dtos
             };
         }
     }
-
-
 }

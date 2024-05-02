@@ -16,7 +16,7 @@ namespace AdministratorWydarzen_WinForms
         void BindDataWithPresenter(BindingSource? eventsDto);
         void DisplayClickedEventDetails(DetailedEventDto detailedEventDto);
     }
-    //OGOLNIE DO ZROBIENIA JESZCZE:  poukladac pewne rzeczy/moze cos poprzenosic itd, NO I ASYNC + to archiwum tez moze.
+
     public partial class EventView : Form, IEventView
     {
         private int _lastClickedIndex = -2;
@@ -34,17 +34,22 @@ namespace AdministratorWydarzen_WinForms
             InitializeComponent();
         }   
         
+        //OnLoad event:
         private void MainEventViewOnLoad(object sender, EventArgs e)
         {
             MainEventViewOnLoadEvent?.Invoke(this, EventArgs.Empty);
             AllEventsListBox.SelectedIndex = -1;
         }
 
+
+        //OnClosed event:
         private void MainEventViewOnClosed(object sender, EventArgs e)
         {
             MainEventViewOnClosedEvent?.Invoke(this, EventArgs.Empty);
         }
 
+
+        //Bind data with presenter:
         public void BindDataWithPresenter(BindingSource? eventsDto) => AllEventsListBox.DataSource = eventsDto;
 
 
@@ -56,7 +61,8 @@ namespace AdministratorWydarzen_WinForms
                 & !EventDateDateTimePicker.SetErrorIfBadStartDate(EventCreatorErrorProvider);
         }
 
-        //Clicks:
+
+        //Click events:
         private void DeleteEventButtonClick(object sender, EventArgs e)
         {
             if (AllEventsListBox.SelectedIndex != -1)
@@ -104,13 +110,8 @@ namespace AdministratorWydarzen_WinForms
             }
         }
 
-        public void DisplayClickedEventDetails(DetailedEventDto detailedEventDto)
-        {
-            EventDetailsTextBox.Text = detailedEventDto.ToString();
-        }
 
-
-        //Filters/sorts:
+        //Filters and sorts events:
         private void FiltersChangedEvent(object sender, EventArgs e)
         {
             var filters = GetFilters();
@@ -206,6 +207,13 @@ namespace AdministratorWydarzen_WinForms
                 4 => Brushes.YellowGreen,
                 _ => null!,
             };
+        }
+
+
+        //Display event details:
+        public void DisplayClickedEventDetails(DetailedEventDto detailedEventDto)
+        {
+            EventDetailsTextBox.Text = detailedEventDto.ToString();
         }
 
 

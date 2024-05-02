@@ -91,3 +91,5 @@ C:\Users\Łukasz\Documents\Studia\Programowanie obiektowe i graficzne\Administra
 C:\Users\Łukasz\Documents\Studia\Programowanie obiektowe i graficzne\AdministratorWydarzenWinForms\AdministratorWydarzen-WinForms\obj\Debug\net8.0-windows\ref\AdministratorWydarzen-WinForms.dll
 C:\Users\Łukasz\Documents\Studia\Programowanie obiektowe i graficzne\AdministratorWydarzenWinForms\AdministratorWydarzen-WinForms\bin\Debug\net8.0-windows\CsvHelper.dll
 C:\Users\Łukasz\Documents\Studia\Programowanie obiektowe i graficzne\AdministratorWydarzenWinForms\AdministratorWydarzen-WinForms\bin\Debug\net8.0-windows\AutoMapper.dll
+C:\Users\Łukasz\Documents\Studia\Programowanie obiektowe i graficzne\AdministratorWydarzenWinForms\AdministratorWydarzen-WinForms\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Łukasz\Documents\Studia\Programowanie obiektowe i graficzne\AdministratorWydarzenWinForms\AdministratorWydarzen-WinForms\bin\Debug\net8.0-windows\System.Linq.Async.dll
