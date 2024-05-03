@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AdministratorWydarzen-WinForms")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c863bc2e178f71f61622fb0c24ee385337dcc937")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33931c1df06f3529824e595b0bcfc5b9a133ebf3")]
 [assembly: System.Reflection.AssemblyProductAttribute("AdministratorWydarzen-WinForms")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AdministratorWydarzen-WinForms")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

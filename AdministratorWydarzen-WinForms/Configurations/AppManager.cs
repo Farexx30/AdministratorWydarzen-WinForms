@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdministratorWydarzen_WinForms.Configurations
 {
+    //Class for managing ids assignments: 
     public static class AppManager
     {
         private readonly static string _dataDirectory = Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.FullName;

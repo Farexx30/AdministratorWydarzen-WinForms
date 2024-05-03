@@ -36,8 +36,16 @@ namespace AdministratorWydarzen_WinForms.Models
                     {
                         Delimiter = ";",
                     };
-                    using var csvReader = new CsvReader(new StreamReader(filePath), csvReaderConfig);
-                    events = csvReader.GetRecords<Event>().ToList();
+
+                    try
+                    {
+                        using var csvReader = new CsvReader(new StreamReader(filePath), csvReaderConfig);
+                        events = csvReader.GetRecords<Event>().ToList();
+                    }
+                    catch (IOException)
+                    {
+                        MessageBox.Show($"Nie można odczytać danych z pliku \"{filePath}\", gdyż jest on w tym momencie używany przez inny proces");
+                    }                   
                 }                
             }
 

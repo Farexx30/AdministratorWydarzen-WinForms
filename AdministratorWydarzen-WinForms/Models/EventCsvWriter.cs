@@ -26,8 +26,16 @@ namespace AdministratorWydarzen_WinForms.Models
             {
                 Delimiter = ";"
             };
-            using var csvWriter = new CsvWriter(new StreamWriter(filePath), csvWriterConfig);
-            csvWriter.WriteRecords(events);
+
+            try
+            {
+                using var csvWriter = new CsvWriter(new StreamWriter(filePath), csvWriterConfig);
+                csvWriter.WriteRecords(events);
+            }
+            catch(IOException)
+            {
+                MessageBox.Show($"Nie można zapisać danych do pliku \"{filePath}\", gdyż jest on w tym momencie używany przez inny proces");
+            }
         }
     }
 }

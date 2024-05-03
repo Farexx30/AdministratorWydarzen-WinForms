@@ -173,6 +173,7 @@ namespace AdministratorWydarzen_WinForms
             return eventDto;
         }
 
+
         //Drawing items in ListBox:
         private void AllEventsListBoxDrawItems(object sender, DrawItemEventArgs e)
         {

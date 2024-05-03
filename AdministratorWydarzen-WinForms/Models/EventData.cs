@@ -12,7 +12,9 @@ namespace AdministratorWydarzen_WinForms.Models
     {
         List<Event> AllEvents { get; set; }
         List<Event> FilterEvents(FiltersEventDto filters);    
-        List<BasicEventDto> SortEvents(List<BasicEventDto> displayedEvents, SortDataEventDto sortData);       
+        List<BasicEventDto> SortEvents(List<BasicEventDto> displayedEvents, SortDataEventDto sortData);
+        void AddEvent(Event newEvent);
+        void DeleteEvent(int eventToDeleteId);
     }
 
     public class EventData : IEventData
@@ -46,6 +48,19 @@ namespace AdministratorWydarzen_WinForms.Models
                : displayedEvents.AsQueryable().OrderByDescending(selectedColumn).ToList();
 
             return displayedEvents;
+        }
+
+        public void AddEvent(Event newEvent)
+        {
+            AllEvents.Add(newEvent);
+        }
+
+        public void DeleteEvent(int eventToDeleteId)
+        {
+            var eventToDelete = AllEvents
+                .First(e => e.Id == eventToDeleteId);
+
+            AllEvents.Remove(eventToDelete);
         }
     }
 }

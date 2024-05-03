@@ -76,7 +76,7 @@ namespace AdministratorWydarzen_WinForms.Presenters
             detailedEventDto.Id = ++AppManager.NumberOfEventsCreated;
 
             var newEvent = _mapper.Map<Event>(detailedEventDto);
-            _eventData.AllEvents?.Add(newEvent);
+            _eventData.AddEvent(newEvent);
 
             var basicEventDto = _mapper.Map<BasicEventDto>(newEvent);
             _eventsDtoBindingSource.Add(basicEventDto);
@@ -88,10 +88,8 @@ namespace AdministratorWydarzen_WinForms.Presenters
         {
             var clickedBasicEventDto = (BasicEventDto)_eventsDtoBindingSource[index];
 
-            var eventToDelete = _eventData.AllEvents
-                !.First(e => e.Id == clickedBasicEventDto.Id);
+            _eventData.DeleteEvent(clickedBasicEventDto.Id);
 
-            _eventData.AllEvents!.Remove(eventToDelete!);
             _eventsDtoBindingSource.Remove(clickedBasicEventDto);
         }
 
@@ -102,7 +100,7 @@ namespace AdministratorWydarzen_WinForms.Presenters
             var clickedBasicEventDto = (BasicEventDto)_eventsDtoBindingSource[index];
 
             var eventToDisplayDetails = _eventData.AllEvents
-                !.First(e => e.Id == clickedBasicEventDto.Id);
+                .First(e => e.Id == clickedBasicEventDto.Id);
 
             var detailedEventDto = _mapper.Map<DetailedEventDto>(eventToDisplayDetails);
 
@@ -114,7 +112,6 @@ namespace AdministratorWydarzen_WinForms.Presenters
         private void EventFiltersChangedHandler(object? sender, FiltersEventDto filters)
         {
             var eventsToDisplay = _eventData.FilterEvents(filters);
-
             var eventsToDisplayDtos = _mapper.Map<List<BasicEventDto>>(eventsToDisplay);
 
             _eventsDtoBindingSource.DataSource = eventsToDisplayDtos;
